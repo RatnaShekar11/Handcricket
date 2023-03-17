@@ -1,0 +1,103 @@
+<html>
+<head>
+    <title>batting</title>
+    <style>
+ *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    background: #262626;
+    background-image: url(https://3.bp.blogspot.com/-cLoXFnBSzsY/U4yg0u4YsUI/AAAAAAAAAIE/FniGqLZO4Jk/s1600/Melbourne-Cricket-Ground-background-wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(4px);
+}
+.container{
+    
+    width: 400px;
+    padding: 50px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    -webkit-perspective: 300px;
+    perspective: 300px;
+}
+.logo{
+    height: 150px;
+    width: 300px;
+	position:relative;
+    margin: 50px auto;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+}
+.logo img{
+    width: 120px;
+    margin-left: 120px;
+}
+.move-text {
+  animation-name: slide-left;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  white-space: nowrap;
+  font-size: larger;
+  margin-top: 60px;
+  color:white;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 140px;
+}
+button{
+    width: 100px;
+    padding: 10px 0;
+    border: 2.5px solid #3498db;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+#start{
+    background-color: #3498db;
+    color: #000
+	font-weight: bold;
+	font-size: 20px;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo" id="logo">
+            <img id = 'img'src = 'https://i2.wp.com/jakartacricket.com/wp-content/uploads/2018/01/Cricket-bowler-Silhouette-black.png?resize=339%2C598'>
+        </div>
+        <h3><div class="move-text">You are bowling first. Click Start when your ready!!!</div></h3>
+        <br><br>
+        <div class="buttons">
+            <button id="start">
+                Start
+            </button>
+        </div>
+        <script>
+             document.getElementById("start").addEventListener("click", function() {
+                window.location.href = "mybowl.html";
+            });
+        </script>
+</body>
+</html>
