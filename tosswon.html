@@ -1,0 +1,120 @@
+<html>
+<head>
+    <title>won toss</title>
+    <style>
+ *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    background: #262626;
+    background-image: url(https://3.bp.blogspot.com/-cLoXFnBSzsY/U4yg0u4YsUI/AAAAAAAAAIE/FniGqLZO4Jk/s1600/Melbourne-Cricket-Ground-background-wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(4px);
+}
+.container{
+    
+    width: 400px;
+    padding: 50px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    -webkit-perspective: 300px;
+    perspective: 300px;
+}
+.logo{
+    height: 150px;
+    width: 300px;
+	position: realtive;
+    margin: 50px auto;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+}
+.logo img{
+    width: 300px;
+    margin-right: 400px;
+}
+.move-text {
+  animation-name: slide-left;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  white-space: nowrap;
+  font-size: larger;
+  margin-top: 60px;
+  color: brown;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 90px;
+}
+button{
+    width: 100px;
+    padding: 10px 0;
+    border: 2.5px solid #3498db;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#bat-button{
+    background-color: #3498db;
+    color: #000
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#bowl-button{
+    background-color: #3498db;
+    color: #000
+	font-weight: bold;
+	font-size: 20px;
+}
+.buttons button.selected {
+  background-color: whitesmoke;
+  color: red;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo" id="logo">
+            <img id = 'img'src = 'https://potli.co.uk/wp-content/uploads/2019/07/cricket-png-images-transparent-free-download-pngmart-com-clipart-Y9VkGu.png'>
+        </div>
+        <br><br>
+        <h2><div class="move-text">You won the toss.Please choose one!!!</div></h2>
+        <br>
+        <div class="buttons" >
+            <button id="bat-button">
+                Bat
+            </button>
+            <button id="bowl-button">
+                Bowl
+            </button>
+        </div>
+        <script>
+            document.getElementById("bat-button").addEventListener("click", function() {
+                window.location.href = "batting.html";
+            });
+            document.getElementById("bowl-button").addEventListener("click", function() {
+                window.location.href = "bowling.html";
+            });
+        </script>
+</body>
+</html>
