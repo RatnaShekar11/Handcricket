@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Cricket Game</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Asap:400,500,700&display=swap');
+
+/* All */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+     background-color: #292C34;
+     background-image: url(https://i.pinimg.com/originals/56/51/41/565141f58fafa8c68bddb80f290dd5ba.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(3px);
+}
+
+
+/* Status Bar */
+.status {
+     margin: 20px auto;
+    
+     
+     border-radius: 4px;
+     text-align: center;
+     width: 60%;
+     color: white;
+     font-size: 40px;
+     padding: 15px 20px;
+     font-family: Asap, sans-serif;
+     position: relative;
+}
+
+
+#img_bat {
+     position: relative;
+     max-height: 70px;
+     top: 10px;
+     left: -10px;
+}
+
+#img_ball {
+     position: relative;
+     max-height: 60px;
+     top: 10px;
+     right: -10px;
+}
+
+/* To Remove bug of relative placement of bat & ball */
+
+/* To Do Scoreboard */
+
+/* Score-Card bar */
+.score-card {
+     margin: 20px auto;
+     border: 3px solid white;
+     border-radius: 4px;
+     text-align: center;
+     width: 250px;
+     color: white;
+     font-size: 46px;
+     padding: 15px 20px;
+     font-family: Asap, sans-serif;
+     position: relative;
+}
+
+.card-badge {
+     background: #e25840;
+     color: white;
+     font-size: 14px;
+     padding: 2px 10px;
+     font-family: Asap sans-serif;
+}
+
+#runs-label {
+     position: absolute;
+     top: 30px;
+     left: -25px;
+}
+
+#wickets-label {
+     position: absolute;
+     top: 30px;
+     right: -30px;
+}
+
+
+#overs {
+    width: 50%;
+    background: #909090;
+    color: white;
+    font-size: 14px;
+    padding: 2px 10px;
+    font-family: Asap sans-serif;
+    position: absolute;
+    bottom: -24px;
+    right: 0;
+}
+
+#target {
+     width: 50%;
+     background: #909090;
+     color: white;
+     font-size: 14px;
+     padding: 2px 10px;
+     font-family: Asap sans-serif;
+     position: absolute;
+     bottom: -48px;
+     right: 0;
+     visibility: hidden;
+}
+
+/* Who played what... and the result of that action */
+.results {
+     margin-top: 60px;
+     font-size: 30px;
+     color: white;
+     text-align: center;
+}
+
+#results-disp {
+     margin: 20px;
+     padding: 15px 15px;
+     font-family: Asap, sans-serif;
+     visibility: hidden;
+}
+
+#result-message {
+     margin: 15px auto;
+     padding: 15px 15px;
+     text-align: center;
+     /* font-weight: bold; */
+     font-family: Asap, sans-serif;
+     font-size:medium;
+}
+
+.action-img {
+     max-height: 100px;
+     max-width: 80px;
+     position: relative;
+     top: 20px;
+}
+
+
+/* Choices for Game Play */
+.hand {
+     max-height: 80px;
+     max-width: 60px;
+}
+
+.Choices {
+     margin: 30px 0;
+     text-align: center;
+}
+
+.choice {
+     border: 4px solid white;
+     border-radius: 50%;
+     margin: 0 12px;
+     padding: 10px;
+     display: inline-block;
+     transition: all 0.3s ease;
+}
+
+.choice:hover {
+     cursor: pointer;
+     background: #3c404a;
+}
+
+/* Display "Make Your Move" */
+#action-message {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Asap, sans-serif;
+}
+footer {
+	background-color: #333;
+	color: #FFF;
+	text-align: center;
+	padding: 20px;
+    height: 20px;
+    margin-top: 80px;
+}
+
+footer p {
+	margin: 0;
+}
+    </style>
+</head>
+<body>
+
+    <!-- STATUS BAR -->
+    <div class="status">
+        <img src="https://images.vexels.com/media/users/3/240076/isolated/preview/0e6c0d8799dc06d116bd376820a6b091-cricket-bat-player-cut-out.png" alt="Bat image" id="img_bat">
+        <span class="status-txt" id="p1-name">Player 1</span>
+        <span class="status-txt" id="status_center_text">&nbsp&nbsp V/S &nbsp&nbsp</span>
+        <span class="status-txt" id="p2-name">Player 2</span>
+        <img src="https://i2.wp.com/jakartacricket.com/wp-content/uploads/2018/01/Cricket-bowler-Silhouette-black.png?resize=339%2C598" alt="Ball image" id="img_ball">
+    </div>
+
+    
+    <!-- SCORE CARD (Runs/Wickets) -->
+    <div class="score-card">
+        <div id="runs-label" class="card-badge">runs</div>
+        <div id="wickets-label" class="card-badge">wickets</div>
+        <span id="runs">0</span>/<span id="wickets">0</span>
+        <div class="score-card-footer">
+            <p id="overs">Overs: 0.0</p>
+            <p id="target">Target: Nil</p>
+        </div>
+        
+    </div>
+
+    <!-- Who played what... and the result of that action -->
+    <div class="results">
+        <div id="results-disp">
+            <span class="result-txt" id="p1-name-res">Player 1</span> played
+            <span class="result-img"><img src="https://cdn1.iconfinder.com/data/icons/universal-signs-symbols/128/number-1-2-512.png" alt="" id="p1-action-img" class="action-img"></span>
+            <span class="result-txt">    v/s    </span>
+            <span class="result-img"><img src="https://cdn1.iconfinder.com/data/icons/universal-signs-symbols/128/number-1-2-512.png" alt="" id="p2-action-img" class="action-img"></span>
+            <span class="result-txt" id="p2-name-res">Player 2</span> played
+        </div>
+        <p id="result-message">The Game is Started! Make your first move!</p>
+    </div>
+
+    <!-- Choices for Game Play-->
+    <!-- Row 1 -->
+    <div class="Choices">
+        <div class="choice" id="hand1">
+            <img class="hand" src="http://www.clker.com/cliparts/l/G/h/y/E/g/button-for-numbers-1-hi.png" alt="1">
+        </div>
+        <div class="choice" id="hand2">
+            <img class="hand" src="http://www.clker.com/cliparts/5/y/b/0/T/4/button-for-numbers-2-hi.png" alt="2">
+        </div>
+        <div class="choice" id="hand3">
+            <img class="hand" src="http://www.clker.com/cliparts/e/z/Y/f/v/b/button-for-numbers-3-md.png" alt="3">
+        </div>
+        <div class="choice" id="hand4">
+            <img class="hand" src="http://www.clker.com/cliparts/s/y/r/M/M/z/button-for-numbers-4-hi.png" alt="4">
+        </div>
+        <div class="choice" id="hand5">
+            <img class="hand" src="http://www.clker.com/cliparts/j/v/w/f/X/H/button-for-numbers-5-hi.png" alt="5">
+        </div>
+        <div class="choice" id="hand6">
+            <img class="hand" src="http://www.clker.com/cliparts/A/4/n/s/l/m/button-for-numbers-6-hi.png" alt="6">
+        </div>
+    </div>
+        
+        <footer>
+            <p>&copy; 2023 Hand Cricket Game. All Rights Reserved.</p>
+        </footer>
+    <script>
+        var p1name = "Player 1";    // current batting player
+var p2name = "player 2";    // current balling player
+const p1name_span = document.getElementById("p1-name");
+const p2name_span = document.getElementById("p2-name");
+const p1name_res = document.getElementById("p1-name-res");
+const p2name_res = document.getElementById("p2-name-res");
+const maxWicket = 10;
+const maxOvers = 10.0;
+var runs = 0;
+var wickets = 0;
+const runs_span = document.getElementById("runs");
+const wickets_span = document.getElementById("wickets");
+var overs = 0.0;
+const overs_p = document.getElementById("overs");
+var target = 0;
+const target_p = document.getElementById("target"); // also contains hide-show style Target
+const results_disp_div = document.getElementById("results-disp"); // hide-show style Result
+var p1_action_img_span = document.getElementById("p1-action-img");
+var p2_action_img_span = document.getElementById("p2-action-img");
+const result_message_p = document.getElementById("result-message");
+const hand1_div = document.getElementById("hand1");
+const hand2_div = document.getElementById("hand2");
+const hand3_div = document.getElementById("hand3");
+const hand4_div = document.getElementById("hand4");
+const hand5_div = document.getElementById("hand5");
+const hand6_div = document.getElementById("hand6");
+var inningsCount = 1;
+
+
+function startFirstInnings() {
+
+
+    target = 0;
+    target_p.style.visibility = "hidden";
+
+    runs = 0;
+    wickets = 0;
+    overs = 0.0;
+    
+    p1name = "User";
+    p2name = "Computer";
+    p1name_span.innerHTML = p1name;
+    p2name_span.innerHTML = p2name;
+    result_message_p.innerHTML = "The Game is Started! Make your first move!";
+}
+
+function startSecondInnings() {
+    alert("End of First innings\nswap sides and get ready\nSecond innings begins!");
+
+    target = runs + 1;
+    target_p.style.visibility = "visible";
+    target_p.innerHTML = "Target: "+target;
+
+    runs = 0;
+    wickets = 0;
+    overs = 0.0;    
+
+    /* swap players */
+    let temp = p1name;
+    p1name = p2name;
+    p2name = temp;
+
+    /* swap player hands */
+    p1_action_img_span = document.getElementById("p2-action-img");
+    p2_action_img_span = document.getElementById("p1-action-img");
+
+    p1name_span.innerHTML = p1name;
+    p2name_span.innerHTML = p2name;
+    result_message_p.innerHTML = "End of first innings, Second innings starts with a Target of "+target+" runs";
+}
+
+function gameOver() {
+    alert("Game Over!");
+
+    results_disp_div.style.visibility = "hidden";
+    if(runs >= target) {
+        // remember? names swapped!
+        result_message_p.innerHTML = p1name+" Won the match!!";
+    }
+    else {
+        result_message_p.innerHTML = p2name+" Won the match!!";
+    }
+
+    var elements = document.getElementsByClassName("Choices");
+
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].style.visibility = "hidden"; //elements[i].style.display = "none"; 
+    }
+    /* To some other page */
+
+    document.getElementById("action-message").style.visibility = "hidden";
+}
+
+function getComputerChoice() {
+    return Math.floor(Math.random()*7);
+}
+
+function incrementOverCount() {
+    let noOfBalls = (overs - Math.floor(overs)).toFixed(1)*10;
+    if(noOfBalls==5){
+        overs = Math.ceil(overs)
+    }
+    else {
+        overs = overs + 0.1;
+    }
+
+    overs_p.innerHTML = "Overs: "+overs.toFixed(1); 
+}
+
+function updateActionResults(p1choice,p2choice){
+    results_disp_div.style.visibility = "visible";
+    p1name_res.innerHTML = p1name;
+    p2name_res.innerHTML = p2name;
+
+    switch(p1choice) {
+        case 1:
+            p1_action_img_span.src = "https://cdn1.iconfinder.com/data/icons/universal-signs-symbols/128/number-1-2-512.png";
+        break;
+        case 2:
+            p1_action_img_span.src = "https://cdn2.iconfinder.com/data/icons/hand-gestures-3-1/128/Two-Fingers-Hand-Number-Gesture-512.png";
+        break;
+        case 3:
+            p1_action_img_span.src = "https://cdn2.iconfinder.com/data/icons/hand-gestures-3-1/128/Three-Fingers-Hand-Number-Gesture-Communication-512.png";
+        break;
+        case 4:
+            p1_action_img_span.src = "https://cdn0.iconfinder.com/data/icons/hand-conversation/91/Hand_06-512.png";
+        break;
+        case 5:
+            p1_action_img_span.src = "https://cdn2.iconfinder.com/data/icons/hand-gestures-1-1/128/Five-Fingers-Hand-Number-Indication-512.png";
+        break;
+        case 6:
+            p1_action_img_span.src = "https://www.pinclipart.com/picdir/big/77-779781_thumbs-up-svg-png-icon-free-download-423440.png";
+        break;
+    }
+    switch(p2choice) {
+        case 1:
+            p2_action_img_span.src = "https://cdn1.iconfinder.com/data/icons/universal-signs-symbols/128/number-1-2-512.png";
+        break;
+        case 2:
+            p2_action_img_span.src = "https://cdn2.iconfinder.com/data/icons/hand-gestures-3-1/128/Two-Fingers-Hand-Number-Gesture-512.png";
+        break;
+        case 3:
+            p2_action_img_span.src = "https://cdn2.iconfinder.com/data/icons/hand-gestures-3-1/128/Three-Fingers-Hand-Number-Gesture-Communication-512.png";
+        break;
+        case 4:
+            p2_action_img_span.src = "https://cdn0.iconfinder.com/data/icons/hand-conversation/91/Hand_06-512.png";
+        break;
+        case 5:
+            p2_action_img_span.src = "https://cdn2.iconfinder.com/data/icons/hand-gestures-1-1/128/Five-Fingers-Hand-Number-Indication-512.png";
+        break;
+        case 6:
+            p2_action_img_span.src = "https://www.pinclipart.com/picdir/big/77-779781_thumbs-up-svg-png-icon-free-download-423440.png";
+        break;
+    }
+}
+
+function printRuns(run,batsman) {
+    switch(run) {
+        case 1:
+            result_message_p.innerHTML = "gets one run";
+        break;
+        case 2:
+            result_message_p.innerHTML = "two runs gained";
+        break;
+        case 3:
+            result_message_p.innerHTML = "three runs! good running between the wickets";
+        break;
+        case 4:
+            result_message_p.innerHTML = "boundary!! four runs!!! Classic from batsman.";
+        break;
+        case 5:
+            result_message_p.innerHTML = "omg... are they Flash!? gets five runs!!";
+        break;
+        case 6:
+            result_message_p.innerHTML = "and the ball goes beyond! what a sixer! Batsman on fire 🔥";
+        break;
+    }
+}
+
+function checkGameFlow() {
+    /* game flow */    
+    if(inningsCount===1 && wickets === maxWicket || overs === maxOvers) {
+        startSecondInnings();
+        inningsCount++;
+    }
+    else if(inningsCount===2 && wickets === maxWicket || inningsCount===2 && runs >= target || overs === maxOvers) {
+        gameOver();
+    }
+    else {
+        //startFirstInnings();
+    }
+}
+
+function gotOut(p1choice) {
+    console.log("OUT!!");
+    wickets++;
+    runs_span.innerHTML = runs;
+    wickets_span.innerHTML = wickets;
+    result_message_p.innerHTML = "OUT!!  "+p1name+" looses a wicket 😢"
+
+    checkGameFlow();
+}
+
+function scoredRun(p1choice, p2choice) {
+    
+    if(inningsCount===1) {
+            console.log("Scored "+p1choice+" runs!!");
+            runs = runs + p1choice;
+        printRuns(p1choice,p1name);
+    }
+    else {
+            console.log("Scored "+p2choice+" runs!!");
+            runs = runs + p2choice;
+        printRuns(p2choice,p1name);
+    }
+    runs_span.innerHTML = runs;
+    wickets_span.innerHTML = wickets;
+    
+
+    checkGameFlow();
+}
+
+function game(p1choice) {
+    let p2choice = getComputerChoice()
+    //const p2choice = getP2Choice() // over the internet
+
+    console.log(p1name+" choice = "+p1choice);
+    console.log(p2name+" choice = "+p2choice);
+
+    incrementOverCount();
+    updateActionResults(p1choice,p2choice);
+    if(p1choice === p2choice) {
+        // Out!
+        gotOut(p1choice);
+    }
+    else {
+        // Score!
+        scoredRun(p1choice,p2choice);
+    }
+    console.log(runs+"/"+wickets);
+    console.log();
+}
+
+function main() {
+    hand1_div.addEventListener('click', function(){
+        game(1);
+    })
+    hand2_div.addEventListener('click', function(){
+        game(2);
+    })
+    hand3_div.addEventListener('click', function(){
+        game(3);
+    })
+    hand4_div.addEventListener('click', function(){
+        game(4);
+    })
+    hand5_div.addEventListener('click', function(){
+        game(5);
+    })
+    hand6_div.addEventListener('click', function(){
+        game(6);
+    })
+
+    startFirstInnings();
+}
+
+main();
+    </script>
+    
+</body>
+</html>
