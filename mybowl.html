@@ -17,7 +17,7 @@
 /* Body */
 body {
      background-color: #292C34;
-     background-image: url(https://i.pinimg.com/originals/56/51/41/565141f58fafa8c68bddb80f290dd5ba.jpg);
+     background-image: url(/images/cricbg3.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     backdrop-filter: blur(3px);
@@ -201,11 +201,11 @@ footer p {
 
     <!-- STATUS BAR -->
     <div class="status">
-        <img src="https://images.vexels.com/media/users/3/240076/isolated/preview/0e6c0d8799dc06d116bd376820a6b091-cricket-bat-player-cut-out.png" alt="Bat image" id="img_bat">
+        <img src="/images/bat.png" alt="Bat image" id="img_bat">
         <span class="status-txt" id="p1-name">Player 1</span>
         <span class="status-txt" id="status_center_text">&nbsp&nbsp V/S &nbsp&nbsp</span>
         <span class="status-txt" id="p2-name">Player 2</span>
-        <img src="https://i2.wp.com/jakartacricket.com/wp-content/uploads/2018/01/Cricket-bowler-Silhouette-black.png?resize=339%2C598" alt="Ball image" id="img_ball">
+        <img src="/images/bowl.png" alt="Ball image" id="img_ball">
     </div>
 
     
@@ -225,9 +225,9 @@ footer p {
     <div class="results">
         <div id="results-disp">
             <span class="result-txt" id="p1-name-res">Player 1</span> played
-            <span class="result-img"><img src="https://cdn1.iconfinder.com/data/icons/universal-signs-symbols/128/number-1-2-512.png" alt="" id="p1-action-img" class="action-img"></span>
+            <span class="result-img"><img src="/images/hand1.png" alt="" id="p1-action-img" class="action-img"></span>
             <span class="result-txt">    v/s    </span>
-            <span class="result-img"><img src="https://cdn1.iconfinder.com/data/icons/universal-signs-symbols/128/number-1-2-512.png" alt="" id="p2-action-img" class="action-img"></span>
+            <span class="result-img"><img src="/images/hand1.png" alt="" id="p2-action-img" class="action-img"></span>
             <span class="result-txt" id="p2-name-res">Player 2</span> played
         </div>
         <p id="result-message">The Game is Started! Make your first move!</p>
@@ -237,22 +237,22 @@ footer p {
     <!-- Row 1 -->
     <div class="Choices">
         <div class="choice" id="hand1">
-            <img class="hand" src="http://www.clker.com/cliparts/l/G/h/y/E/g/button-for-numbers-1-hi.png" alt="1">
+            <img class="hand" src="/images/button1.png" alt="1">
         </div>
         <div class="choice" id="hand2">
-            <img class="hand" src="http://www.clker.com/cliparts/5/y/b/0/T/4/button-for-numbers-2-hi.png" alt="2">
+            <img class="hand" src="/images/button2.png" alt="2">
         </div>
         <div class="choice" id="hand3">
-            <img class="hand" src="http://www.clker.com/cliparts/e/z/Y/f/v/b/button-for-numbers-3-md.png" alt="3">
+            <img class="hand" src="/images/button3.png" alt="3">
         </div>
         <div class="choice" id="hand4">
-            <img class="hand" src="http://www.clker.com/cliparts/s/y/r/M/M/z/button-for-numbers-4-hi.png" alt="4">
+            <img class="hand" src="/images/button4.png" alt="4">
         </div>
         <div class="choice" id="hand5">
-            <img class="hand" src="http://www.clker.com/cliparts/j/v/w/f/X/H/button-for-numbers-5-hi.png" alt="5">
+            <img class="hand" src="/images/button5.png" alt="5">
         </div>
         <div class="choice" id="hand6">
-            <img class="hand" src="http://www.clker.com/cliparts/A/4/n/s/l/m/button-for-numbers-6-hi.png" alt="6">
+            <img class="hand" src="/images/button6.png" alt="6">
         </div>
     </div>
         
@@ -376,42 +376,42 @@ function updateActionResults(p1choice,p2choice){
 
     switch(p1choice) {
         case 1:
-            p1_action_img_span.src = "https://cdn1.iconfinder.com/data/icons/universal-signs-symbols/128/number-1-2-512.png";
+            p1_action_img_span.src = "/images/hand1.png";
         break;
         case 2:
-            p1_action_img_span.src = "https://cdn2.iconfinder.com/data/icons/hand-gestures-3-1/128/Two-Fingers-Hand-Number-Gesture-512.png";
+            p1_action_img_span.src = "/images/hand2.png";
         break;
         case 3:
-            p1_action_img_span.src = "https://cdn2.iconfinder.com/data/icons/hand-gestures-3-1/128/Three-Fingers-Hand-Number-Gesture-Communication-512.png";
+            p1_action_img_span.src = "/images/hand3.png";
         break;
         case 4:
-            p1_action_img_span.src = "https://cdn0.iconfinder.com/data/icons/hand-conversation/91/Hand_06-512.png";
+            p1_action_img_span.src = "/images/hand4.png";
         break;
         case 5:
-            p1_action_img_span.src = "https://cdn2.iconfinder.com/data/icons/hand-gestures-1-1/128/Five-Fingers-Hand-Number-Indication-512.png";
+            p1_action_img_span.src = "/images/hand5.png";
         break;
         case 6:
-            p1_action_img_span.src = "https://www.freeiconspng.com/uploads/thumbs-up-icon-21.png";
+            p1_action_img_span.src = "/images/hand6.png";
         break;
     }
     switch(p2choice) {
         case 1:
-            p2_action_img_span.src = "https://cdn1.iconfinder.com/data/icons/universal-signs-symbols/128/number-1-2-512.png";
+            p2_action_img_span.src = "/images/hand1.png";
         break;
         case 2:
-            p2_action_img_span.src = "https://cdn2.iconfinder.com/data/icons/hand-gestures-3-1/128/Two-Fingers-Hand-Number-Gesture-512.png";
+            p2_action_img_span.src = "/images/hand2.png";
         break;
         case 3:
-            p2_action_img_span.src = "https://cdn2.iconfinder.com/data/icons/hand-gestures-3-1/128/Three-Fingers-Hand-Number-Gesture-Communication-512.png";
+            p2_action_img_span.src = "/images/hand3.png";
         break;
         case 4:
-            p2_action_img_span.src = "https://cdn0.iconfinder.com/data/icons/hand-conversation/91/Hand_06-512.png";
+            p2_action_img_span.src = "/images/hand4.png";
         break;
         case 5:
-            p2_action_img_span.src = "https://cdn2.iconfinder.com/data/icons/hand-gestures-1-1/128/Five-Fingers-Hand-Number-Indication-512.png";
+            p2_action_img_span.src = "/images/hand5.png";
         break;
         case 6:
-            p2_action_img_span.src = "https://www.freeiconspng.com/uploads/thumbs-up-icon-21.png";
+            p2_action_img_span.src = "/images/hand6.png";
         break;
     }
 }
