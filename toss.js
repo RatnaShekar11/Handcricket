@@ -44,7 +44,7 @@ flipBtn.addEventListener("click", () => {
                     }
                 }
                 else{
-                    window.location.href = 'cric.html'
+                    window.location.href = 'index.html'
                 }
                 }
             },3100);
@@ -68,7 +68,7 @@ flipBtn.addEventListener("click", () => {
                     }
                 }
                 else{
-                    window.location.href = 'cric.html'
+                    window.location.href = 'index.html'
                 }
                 }
             },3100);
