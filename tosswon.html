@@ -40,27 +40,15 @@ body{
     width: 300px;
     margin-right: 400px;
 }
-.move-text {
-  animation-name: slide-left;
-  animation-duration: 5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  white-space: nowrap;
-  font-size: larger;
-  margin-top: 60px;
-  color: brown;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
 
-@keyframes slide-left {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+h2{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color:brown;
 }
-
+h3{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color:bisque;
+}
 .buttons{
     display: flex;
     justify-content: space-between;
@@ -99,7 +87,8 @@ button{
             <img id = 'img'src = '/images/logo.png'>
         </div>
         <br><br>
-        <h2><div class="move-text">You won the toss.Please choose one!!!</div></h2>
+        <h2>You won the toss!<h2>
+	<h3>Please choose any one.<h3>
         <br>
         <div class="buttons" >
             <button id="bat-button">
