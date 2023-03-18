@@ -7,7 +7,11 @@ body {
     background-size: cover;
     backdrop-filter: blur(3px);
 }
-
+@media only screen and (max-width: 600px) {
+        body {
+            background-size: auto 50%;
+        }
+}
 header {
 	text-align: center;
 	padding: 50px 0;
