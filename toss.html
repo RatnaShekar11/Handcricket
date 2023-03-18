@@ -28,26 +28,6 @@ body{
     -webkit-perspective: 300px;
     perspective: 300px;
 }
-.move-text {
-  animation-name: slide-left;
-  animation-duration: 5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  white-space: nowrap;
-  font-size: larger;
-  margin-top: 60px;
-  color: brown;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
-@keyframes slide-left {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
 .coin{
     height: 150px;
     width: 300px;
@@ -129,7 +109,7 @@ button{
 </head>
 <body>
     <div class="container">
-        <h1><div class="move-text">Its Toss Time!!!</div></h1>
+        <h1>Its Toss Time!!!</h1>
         <div class="coin" id="coin">
             <img id = 'img'src = '/images/toss.png' alt="Penny">
         </div>
